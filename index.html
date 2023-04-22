@@ -18,11 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome  -->
-    <link href="fontawesome/css/fontawesome.css" rel="stylesheet">
-    <link href="fontawesome/css/brands.css" rel="stylesheet">
-    <link href="fontawesome/css/solid.css" rel="stylesheet">
-
+   
 
 
     <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
@@ -61,9 +57,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navresponsiva">
         <ul class="navbar-nav nav-pills" >
 
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
+        
 
           <li class="nav-item">
             <a class="nav-link" href="#procedimientos">Procedimientos</a>
@@ -94,7 +88,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link active bg-black text-white p-2" href="#asistencia">Asistencia</a>
+            <a class="nav-link active bg-black text-white p-2" href="#asistencia">Asistencia <i class="fa-solid fa-wrench"></i> </a>
           </li>
         </ul>
       </div>
@@ -560,12 +554,17 @@
  
 <div id="carouselInstructivosTeco" class="carousel slide">
   <div class="carousel-inner py-4">
+
+
+   
+
+
     <div class="carousel-item active">
 
       <div class="container">
 
       <div class="row g-5">
-        <div class="col-lg-6 col-xl-3 text-center" >
+        <div class="col-lg-6 col-xl-3  text-center" >
             <div class="card bg-info align-items-center bg-white border-0 shadow rounded-4" >
               <i class="fa-regular fa-file-lines fa-10x mt-2"></i>
             <div class="card-body">
@@ -1193,7 +1192,7 @@
             <div class="card bg-info align-items-center border-0 bg-body py-4 text-center" >
               <i class="fa-solid fa-link fa-10x"></i>
             <div class="card-body">
-              <h4 class="card-title">Citrix WEB Insite</h4>
+              <h4 class="card-title">Citrix WEB Red Activocc</h4>
               <p class="card-text">Ingreso a Citrix por WEB</p>
                      
             </div>
@@ -1243,44 +1242,6 @@
 
 
 
-<!-- 
-
-
-      <h3 class="my-4 container">Otras campañas</h3>
-
-      <div class="container">
-      <div class="row align-items-center g-5">
-
-        <div class="col-lg-3 align-items-center" > <a class="nolinkcolor text-dark efecto" href="">
-          <div class="card bg-info align-items-center border-0 bg-body py-4 text-center" >
-            <i class="fa-solid fa-download fa-10x"></i>
-          
-          <div class="card-body">
-            <h4 class="card-title">Descargar XLITE</h4>
-            <p class="card-text">App de escritorio</p>
-                   
-          </div>
-        </div></a></div>
-
-
-  
-  
-  
-  
-        
-
-    </div>
-
-    
-    
-   
-    
-  </div>
-
-
-  -->
-
-
 <!--Formulario --> 
 <div class="bg-secondary py-5 mt-5 bg-opacity-10" id="asistencia">
  
@@ -1299,9 +1260,9 @@
  <h5> <i class="fa-regular fa-user"></i> Datos Personales</h5>
  
  
- <div class="row my-3">
-  <div class="col-sm-4">
-    <div class="form-floating mb-3">
+ <div class="row my-3 g-2">
+  <div class="col-sm-4 mb-4">
+    <div class="form-floating">
       <input type="text" class="form-control" id="nombre" placeholder="." maxlength="50" name="Nombre" required>
       <label for="nombre">Nombre</label>
       <div class="invalid-feedback">
@@ -1309,8 +1270,8 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-4">
-    <div class="form-floating mb-3">
+  <div class="col-sm-4 mb-4">
+    <div class="form-floating">
       <input type="text" class="form-control" id="apellido" placeholder="." maxlength="50" name="Apellido" required>
       <label for="apellido">Apellido</label>
       <div class="invalid-feedback">
@@ -1320,10 +1281,10 @@
   </div>
 
 
-<div class="col-sm-4">
+<div class="col-sm-4 mb-4">
 
 
-  <div class="form-floating mb-3">
+  <div class="form-floating">
     <input type="text" class="form-control" id="dni" placeholder="ejemplo" name="DNI" pattern="[0-9]+" required
     oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="8"
               onblur="if (this.value.length != 8) {this.setCustomValidity('Ingrese un dato valido.');} else {this.setCustomValidity('');}">
@@ -1351,11 +1312,11 @@
 </div>
  
 
-   <div class="row my-3">
+   <div class="row g-2">
 
 
-    <div class="col-md-6">
-      <div class="input-group mb-3">
+    <div class="col-md-6 mb-4" >
+      <div class="input-group">
         <div class="form-floating">
           <select class="form-select pb-2" aria-label="Server" id="tipoUsuario" required>
             <option disabled selected value="">Seleccionar...</option>
@@ -1368,7 +1329,7 @@
             Complete con un dato valido.
           </div>
         </div>
-        <div class="form-floating mb-3">
+        <div class="form-floating">
           <input type="text" class="form-control" id="usuario" placeholder="." maxlength="25" name="Usuario" required>
           <label for="usuario">Usuario</label>
           <div class="invalid-feedback">
@@ -1402,9 +1363,9 @@
       
 
 
-      <div class="col-md-6">
+      <div class="col-md-6 mb-4">
 
-        <div class="input-group mb-3">
+        <div class="input-group">
           <div class="form-floating">
               <input type="text" class="form-control" placeholder="Username" aria-label="Username" id="username" required>
               <label for="username">Direccion de Email</label>
@@ -1449,10 +1410,10 @@
        
    </div>
  
-   <div class="row my-4">
+   <div class="row g-2 ">
        
-     <div class="col-lg-4">
-       <div class="form-floating mb-3">
+     <div class="col-lg-4 mb-4">
+       <div class="form-floating">
          <input type="number" class="form-control" id="Ntelfono" placeholder="ejemplo" name="NroTelefono" required>
          
          <label for="Ntelfono">Nro de Telefono</label>
@@ -1468,11 +1429,11 @@
      
      
      
-     <div class="col-lg-4 mb-3 mb-sm-0">
+     <div class="col-lg-4 mb-4">
 
 
 
-      <div class="input-group mb-3">
+      <div class="input-group">
 
 
 
@@ -1482,10 +1443,8 @@
   
   
             <option value="Operador">Operador</option> 
-            <option value="Calidad">GD INFO</option>
-            <option value="Calidad">Calidad</option>
-            <option value="Calidad">Supervision</option>
-            <option value="Calidad">TeamLeader</option>
+            <option value="Calidad">Staff</option>
+            
             
   
            
@@ -1503,7 +1462,9 @@
         <select class="form-select pb-2" id="Campaña" name="Campaña" required>
          <option selected disabled value="">Seleccionar...</option>
 
-         <option value="s/campaña">No tengo</option>
+          <option value="Calidad">Calidad</option>
+            <option value="Calidad">Supervision</option>
+            <option value="Calidad">TeamLeader</option>
           <option value="Reten">Retencion</option>
           <option value="Clarin">Clarin</option>
           <option value="Ventas OUT">Ventas OUT</option>
@@ -1564,15 +1525,14 @@
 
 
 
-     <div class="col-lg-4">
+     <div class="col-lg-4 mb-4">
        <div class="form-floating">
          <select class="form-select" id="Ssuperior" name="Superior" required>
           <option selected disabled value="">Seleccionar...</option>
            <option value="Otro">Otro</option>
            <option value="Matias Martinez">Matias Martinez</option>
            <option value="Eber Cuello">Eber Cuello</option>
-           <option value="Jonathan Santos">Jonathan Santos</option>
-           <option value="Matias Martinez">Matias Martinez</option>
+           <option value="Jonathan Santos">Jonatan Santos</option>
 
          </select>
          <label for="Ssuperior">Superior a cargo</label>
@@ -1712,6 +1672,9 @@
    <textarea class="form-control" id="comentario" rows="2" maxlength="140" name="Comentario"></textarea>
  </div>
  
+
+
+ 
  <hr>
  
      <div class="row">
@@ -1724,7 +1687,13 @@
            <div class="border p-3 border-2 border-secondary">
  
              <div>
-               <h5> <i class="fa-regular fa-circle-exclamation"></i> Aclaraciones</h5> 
+
+              
+
+                
+                <h5> <i class="fa-solid fa-circle-exclamation"></i>Aclaraciones</h5>
+
+        
                <div>
                   <p class="mb-1">- Si el anydesk figura cerrado al momento de enviar solicitud y en el formulario no hay nada que indique que no se tiene acceso a dicha herramienta, se cierra el ticket.</p> <br>
                    <p class="mb-1">- Si no se responde la solicitud de anydesk o contacto por Whatsapp por un tiempo determinado, se cierra el ticket.</p> <br>
@@ -1911,6 +1880,14 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+
+
+
+ <!-- Font Awesome  -->
+ <script src="https://kit.fontawesome.com/60be70fbe4.js" crossorigin="anonymous"></script>
+
+
 
 </body>
 </html>
