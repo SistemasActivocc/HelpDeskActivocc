@@ -1,0 +1,67 @@
+Nombre
+Apellido
+DNI	
+Usuario
+email
+NroTelefono
+Campaña
+Superior
+NroAnydesk
+ProveedorInternet
+Inconveniente
+Estado
+Comentario
+
+const scriptProp = PropertiesService.getScriptProperties()
+
+function initialSetup() {
+  const activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet()
+  scriptProp.setProperty('key', activeSpreadsheet.getId())
+}
+
+function doPost(e) {
+  const lock = LockService.getScriptLock()
+  lock.tryLock(10000)
+
+  try {
+    const doc = SpreadsheetApp.openById(scriptProp.getProperty('key'))
+    let sheetName = ''
+    
+    // Obtenemos el valor seleccionado del formulario
+    const estado = e.parameter.Estado
+
+    // Dependiendo del valor seleccionado, establecemos el nombre de la hoja de cálculo correspondiente
+    if (estado === 'Gestionando') {
+      sheetName = 'Gestionando'
+    } else if (estado === 'Sin Gestionar') {
+      sheetName = 'Sin Gestionar'
+    }
+
+    const sheet = doc.getSheetByName(sheetName)
+
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
+    const nextRow = sheet.getLastRow() + 1
+
+    const newRow = headers.map(function(header) {
+      return header === 'Fecha y Hora' ? new Date().toLocaleString() : e.parameter[header]
+    })
+
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow])
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON)
+  }
+
+  catch (e) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e }))
+      .setMimeType(ContentService.MimeType.JSON)
+  }
+
+  finally {
+    lock.releaseLock()
+  }
+}
+
+action="https://script.google.com/macros/s/AKfycbxthMcFMGvq14cpqYQOIJd4wq_fefr-5n_3QiqjSsu9lsVaAivBDWmug0JbXpa2OOCR8g/exec"
