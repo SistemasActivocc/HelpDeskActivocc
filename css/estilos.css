@@ -60,3 +60,4 @@ input[type=number] {
     -moz-appearance: textfield;
     appearance: textfield; /* para navegadores basados en WebKit */
 }
+
