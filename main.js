@@ -1,6 +1,5 @@
 
-//Deshabilitar usuario si no tiene.
-
+// Formulario de selección de tipo de usuario y su nombre de usuario correspondiente
 const tipoUsuario = document.getElementById('tipoUsuario');
 const usuario = document.getElementById('usuario');
 
@@ -21,8 +20,8 @@ form.addEventListener('submit', (event) => {
   }
 });
 
-//
 
+// Creación de dirección de correo electrónico a partir del nombre de usuario y el servidor
 const usernameField = document.getElementById("username");
 const serverField = document.getElementById("server");
 const emailField = document.getElementById("email");
@@ -33,57 +32,48 @@ usernameField.addEventListener("input", updateEmailField);
 serverField.addEventListener("change", updateEmailField);
 
 
+// Botón de envío de formulario con animación de carga
+const submitBtn = document.getElementById('submitBtn');
+const spinnerBtn = document.getElementById('spinnerBtn');
 
-  const submitBtn = document.getElementById('submitBtn');
-  const spinnerBtn = document.getElementById('spinnerBtn');
-
-  submitBtn.addEventListener('click', function() {
-    spinnerBtn.classList.remove('d-none');
-    setTimeout(function() {
-      spinnerBtn.classList.add('d-none');
-    }, 2000);
-  });
-
-
-
-
-
-
-  (() => {
-    'use strict'
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    const forms = document.querySelectorAll('.needs-validation')
-
-    // Loop over them and prevent submission
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-  })()
+submitBtn.addEventListener('click', function() {
+  submitBtn.disabled = true; // Deshabilitar el botón de envío
+  spinnerBtn.classList.remove('d-none');
+  setTimeout(function() {
+    spinnerBtn.classList.add('d-none');
+    submitBtn.disabled = false; // Habilitar el botón de envío después de 2 segundos
+  }, 2000);
+});
 
 
 
 
+// Validación del formulario con Bootstrap
+(() => {
+  'use strict'
+
+  const forms = document.querySelectorAll('.needs-validation')
+
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
 
 
-  window.addEventListener('DOMContentLoaded', () => {
+// Envío de formulario mediante AJAX
+window.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('form')
   const mensaje = document.querySelector('#mensaje')
 
-
-
-
-
   function handleFormResponse(data) {
     if (data.result === 'success') {
-      // Limpiar los mensajes de error
       const invalidFields = document.querySelectorAll('.is-invalid')
       invalidFields.forEach(field => {
         field.classList.remove('is-invalid')
@@ -92,19 +82,13 @@ serverField.addEventListener("change", updateEmailField);
           feedback.textContent = ''
         }
       })
-      // Limpiar los valores del formulario
       form.reset()
-      // Redireccionar a la página "enviado.html"
       window.location.href = "success.html";
     } else {
       mensaje.textContent = 'Error al enviar el formulario.'
       mensaje.style.color = 'red'
     }
   }
-
-
-
-
 
   form.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -127,12 +111,18 @@ serverField.addEventListener("change", updateEmailField);
 })
 
 
+// Reinicio del formulario al cargar la página
+window.addEventListener("load", function() {
+  document.getElementById("formulario").reset();
+});
 
 
-
-  
-
-  window.addEventListener("load", function() {
-    document.getElementById("formulario").reset();
-  });
-
+// Validación del campo DNI
+const dniField = document.getElementById("dni");
+dniField.addEventListener("input", () => {
+    if (dniField.value.length !== 8) {
+        dniField.setCustomValidity("Complete con un dato valido.");
+    } else {
+        dniField.setCustomValidity("");
+    }
+});
