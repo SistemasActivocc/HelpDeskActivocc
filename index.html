@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pablo Pafundi">
+    <meta name="robots" content="noindex">
     <!-- BOOTSTRAP 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     
@@ -80,6 +82,7 @@
                 <li><h5 class="dropdown-header">Generales</h5></li>
                 <li><a class="dropdown-item" href="#sa">Configuración sonido y audio</a></li>
                 <li><a class="dropdown-item" href="#internet">Test Internet</a></li>
+                <li><a class="dropdown-item" href="#comproxy">Carpeta Compartida y proxy</a></li>
               </ul>
             </li>
 
@@ -128,7 +131,7 @@
             <div class=" py-2">
               <h4 class="">Error Citrix Logueo/Credenciales</h4>
               <p class="">Ingresamos credenciales para loguearse en citrix y da error.</p>
-              <button type="button" class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#1"><i class="fa-solid fa-arrow-down"></i></button>
+              <button type="button" class="btn btn-dark rounded-5" data-bs-toggle="collapse" data-bs-target="#1"><i class="fa-solid fa-arrow-down"></i></button>
             </div>
             </div> 
 
@@ -195,6 +198,220 @@
         </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-lg-6 center">
+
+
+
+
+          <div class="rounded-pill bg-white text-dark px-5 bg-opacity-75 shadow">
+          <div class=" py-2">
+            <h4 class="">No tengo el Authenticator configurado</h4>
+            <p class="">Doble factor para mail y citrix</p>
+            <button type="button" class="btn btn-dark rounded-5" data-bs-toggle="collapse" data-bs-target="#AA"><i class="fa-solid fa-arrow-down"></i></button>
+          </div>
+          </div> 
+
+
+            <div class="container">
+            
+            <div id="AA" class="collapse mt-4">
+
+              <div class="accordion accordion-flush text-start" id="authenticatorAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="aAHeading">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#flushAA" aria-expanded="false" aria-controls="2flush-collapseOne">
+                      Procedimiento 1
+                    </button>
+                  </h2>
+                  <div id="flushAA" class="accordion-collapse collapse" aria-labelledby="aAHeading" data-bs-parent="#authenticatorAccordion">
+                    <div class="accordion-body">Revisar instructivo <a href="#instructivos">Google Authenticator</a></div>
+                  </div>
+                </div>
+          
+               
+              </div>
+
+
+
+
+
+
+        
+          </div>
+        </div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-lg-6 center">
+
+
+
+
+          <div class="rounded-pill bg-white text-dark px-5 bg-opacity-75 shadow">
+          <div class=" py-2">
+            <h4 class="">Carpeta compartida/No tengo internet InSite</h4>
+            <p class="">No aparece la carpeta compartida y no tengo internet</p>
+            <button type="button" class="btn btn-dark rounded-5" data-bs-toggle="collapse" data-bs-target="#CPROXY"><i class="fa-solid fa-arrow-down"></i></button>
+          </div>
+          </div> 
+
+
+            <div class="container">
+            
+            <div id="CPROXY" class="collapse mt-4">
+
+              <div class="accordion accordion-flush text-start" id="CPROXYAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="aAHeading">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#flushCPROXY" aria-expanded="false" aria-controls="flushCPROXY">
+                      Procedimiento 1
+                    </button>
+                  </h2>
+                  <div id="flushCPROXY" class="accordion-collapse collapse" aria-labelledby="aAHeading" data-bs-parent="#CPROXYAccordion">
+                    <div class="accordion-body">Revisar instructivo <a href="#comproxy">Carpeta Compartida y proxy</a></div>
+                  </div>
+                </div>
+          
+               
+              </div>
+
+
+
+
+
+
+        
+          </div>
+        </div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-lg-6 center">
+          <div class="rounded-pill bg-white text-dark px-5 bg-opacity-75 shadow">
+            <div class="py-2">
+              <h4>Falla sonido InSite</h4>
+              <p>Auricular/Sonido no funciona correctamente</p>
+              <button type="button" class="btn btn-dark rounded-5" data-bs-toggle="collapse" data-bs-target="#audioInsite"><i class="fa-solid fa-arrow-down"></i></button>
+            </div>
+          </div> 
+          <div class="container">
+            <div id="audioInsite" class="collapse mt-4">
+              <div class="accordion accordion-flush text-start" id="AudioInsiteAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="AudioInsiteheadingOne">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#AudioInsitecollapseOne" aria-expanded="false" aria-controls="AudioInsitecollapseOne">
+                      Procedimiento 1
+                    </button>
+                  </h2>
+                  <div id="AudioInsitecollapseOne" class="accordion-collapse collapse" aria-labelledby="AudioInsiteheadingOne" data-bs-parent="#AudioInsiteAccordion">
+                    <div class="accordion-body">
+                     Revisar Instructivo <a href="#instructivos">Configuración de Sonido y audio</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="AudioInsiteheadingTwo">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#AudioInsitecollapseTwo" aria-expanded="false" aria-controls="AudioInsitecollapseTwo">
+                      Procedimiento 2
+                    </button>
+                  </h2>
+                  <div id="AudioInsitecollapseTwo" class="accordion-collapse collapse" aria-labelledby="AudioInsiteheadingTwo" data-bs-parent="#AudioInsiteAccordion">
+                    <div class="accordion-body">
+                      * Abrir PIC por Fuera del remoto. <br>
+                      * Si solo esta disponible dentro del remoto, revisar instructivo <a href="#instructivos">Reinicio Citrix </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <div class="col-lg-6 center">
 
 
@@ -204,7 +421,7 @@
             <div class=" py-2">
               <h4 class="">Error Citrix Ingreso Remoto</h4>
               <p class="">Hacemos click en el remoto y aparece un error.</p>
-              <button type="button" class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#2"><i class="fa-solid fa-arrow-down"></i></button>
+              <button type="button" class="btn btn-dark rounded-5" data-bs-toggle="collapse" data-bs-target="#2"><i class="fa-solid fa-arrow-down"></i></button>
             </div>
             </div> 
 
@@ -253,7 +470,7 @@
             <div class=" py-2">
               <h4 class="">Error Open Logueo/Credenciales</h4>
               <p class="">Contraseña incorrecta. Cuenta bloqueada</p>
-              <button type="button" class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#3"><i class="fa-solid fa-arrow-down"></i></button>
+              <button type="button" class="btn btn-dark rounded-5" data-bs-toggle="collapse" data-bs-target="#3"><i class="fa-solid fa-arrow-down"></i></button>
             </div>
             </div> 
 
@@ -306,7 +523,7 @@
             <div class=" py-2">
               <h4 class="">Falla Audio/Remoto Lento</h4>
               <p class="">Audio entrecortado, rebotico, eco, fritura, mudo. Tarda en caer el dato</p>
-              <button type="button" class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#4"><i class="fa-solid fa-arrow-down"></i></button>
+              <button type="button" class="btn btn-dark rounded-5" data-bs-toggle="collapse" data-bs-target="#4"><i class="fa-solid fa-arrow-down"></i></button>
             </div>
             </div> 
 
@@ -362,7 +579,7 @@
             <div class=" py-2">
               <h4 class="">Agregar cuenta en Citrix</h4>
               <p class="">No permite agregar cuenta</p>
-              <button type="button" class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#5"><i class="fa-solid fa-arrow-down"></i></button>
+              <button type="button" class="btn btn-dark rounded-5" data-bs-toggle="collapse" data-bs-target="#5"><i class="fa-solid fa-arrow-down"></i></button>
             </div>
             </div> 
 
@@ -406,7 +623,7 @@
             <div class=" py-2">
               <h4 class="">Sonido Bloqueado dentro del Remoto</h4>
               <p class="">El sonido (Dentro del remoto) figura bloqueado.</p>
-              <button type="button" class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#6"><i class="fa-solid fa-arrow-down"></i></button>
+              <button type="button" class="btn btn-dark rounded-5" data-bs-toggle="collapse" data-bs-target="#6"><i class="fa-solid fa-arrow-down"></i></button>
             </div>
             </div> 
 
@@ -444,7 +661,7 @@
             <div class=" py-2">
               <h4 class="">Error de proxy dentro del remoto</h4>
               <p class="">Errores referidos al proxy dentro del remoto</p>
-              <button type="button" class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#7"><i class="fa-solid fa-arrow-down"></i></button>
+              <button type="button" class="btn btn-dark rounded-5" data-bs-toggle="collapse" data-bs-target="#7"><i class="fa-solid fa-arrow-down"></i></button>
             </div>
             </div> 
 
@@ -484,7 +701,7 @@
             <div class=" py-2">
               <h4 class="">Error de "lugar" en Workspace/WDE</h4>
               <p class="">En Workspace nos aparece para ingresar <strong>Lugar</strong></p>
-              <button type="button" class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#8"><i class="fa-solid fa-arrow-down"></i></button>
+              <button type="button" class="btn btn-dark rounded-5" data-bs-toggle="collapse" data-bs-target="#8"><i class="fa-solid fa-arrow-down"></i></button>
             </div>
             </div> 
 
@@ -843,8 +1060,30 @@
 
 
 </div>
+<div id="comproxy"></div>
 
+<h3 class="d-flex p-2 mt-5 mb-3 rounded-3 bg-dark text-white container">Instructivos Carpeta Compartida y Proxy InSite</h3>
 
+<div class="container py-1">
+
+  <div class="row g-5 ">
+    <div class="col-sm-12">
+      <div class="card bg-info align-items-center bg-white border-0 text-center shadow rounded-4">
+        <i class="fa-solid fa-share-nodes fa-10x mt-2"></i>
+        
+      <div class="card-body">
+        <h4 class="card-title">Carpeta Compartida y proxy</h4>
+        <p class="card-text">Agregar carpeta compartida y configurar proxy</p>
+        <a href="https://drive.google.com/file/d/1wzZ07JrshOyJxbYjxlmQLbPnzhEiI3l8/view" target="_blank" class="card-link"><button type="button" class="btn btn-light">Instructivo</button></a>
+      </div>
+    </div></div>
+
+  
+   
+    
+  </div>
+
+</div>
 
 
 
@@ -1651,14 +1890,14 @@
               
 
                 
-                <h5> <i class="fa-solid fa-circle-exclamation"></i>Aclaraciones</h5>
+                <h5 > <i class="fa-solid fa-circle-exclamation"></i>Aclaraciones</h5>
 
         
                <div>
                   <p class="mb-1">- Si el anydesk figura cerrado al momento de enviar solicitud y en el formulario no hay nada que indique que no se tiene acceso a dicha herramienta, se cierra el ticket.</p> <br>
                    <p class="mb-1">- Si no se responde la solicitud de anydesk o contacto por Whatsapp por un tiempo determinado, se cierra el ticket.</p> <br>
-                   <p class="mb-1">- Si el motivo del incoveniente es autogestionable y el agente no intento resolverlo, se le envian indicaciones y se cierra el ticket.</p> <br>
-                   <p class="mb-1">- Si el incoveniente no es un error, sino no una falta de conocimiento sobre el uso de la herramienta. Se eleva el caso a su superior y se cierra el ticket.</p>
+                   <p class="mb-1">- Si el motivo del inconveniente es auto gestionable y el agente no intento resolverlo, se le envían indicaciones y se cierra el ticket.</p> <br>
+                   <p class="mb-1">- Si el inconveniente no es un error, sino no una falta de conocimiento sobre el uso de la herramienta. Se eleva el caso a su superior y se cierra el ticket.</p>
                  
                  </p>
                </div>
@@ -1692,7 +1931,7 @@
  
        <div class="form-check form-switch">
          <input class="form-check-input" type="checkbox" role="switch" id="itemuno" required>
-         <label class="form-check-label" for="itemuno">Declaro la veracidad de la informacion que ingrese en este formulario.</label>
+         <label class="form-check-label" for="itemuno">Declaro la veracidad de la información que ingresé en este formulario.</label>
          <div class="invalid-feedback">
           Debe aceptar los terminos
         </div>
@@ -1761,4 +2000,9 @@
 
 
 </body>
+
+
+
+<!-- Realizado por Pablo Pafundi  -->
+
 </html>
