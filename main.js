@@ -42,7 +42,7 @@ submitBtn.addEventListener('click', function() {
   setTimeout(function() {
     spinnerBtn.classList.add('d-none');
     submitBtn.disabled = false; // Habilitar el botón de envío después de 2 segundos
-  }, 2000);
+  }, 3000);
 });
 
 
@@ -82,7 +82,6 @@ window.addEventListener('DOMContentLoaded', () => {
           feedback.textContent = ''
         }
       })
-      form.reset()
       window.location.href = "success.html";
     } else {
       mensaje.textContent = 'Error al enviar el formulario.'
@@ -117,12 +116,25 @@ window.addEventListener("load", function() {
 });
 
 
-// Validación del campo DNI
-const dniField = document.getElementById("dni");
-dniField.addEventListener("input", () => {
-    if (dniField.value.length !== 8) {
-        dniField.setCustomValidity("Complete con un dato valido.");
-    } else {
-        dniField.setCustomValidity("");
-    }
+
+// Campos de Info PC solo si es Home Office
+
+const selectModalidad = document.getElementById('Smodalidad');
+const inputAnydesk = document.getElementById('Anydesk');
+const inputPinternet = document.getElementById('Pinternet');
+
+inputAnydesk.disabled = true;
+    inputPinternet.disabled = true;
+
+
+selectModalidad.addEventListener('change', () => {
+  if (selectModalidad.value === 'Home Office') {
+    inputAnydesk.disabled = false;
+    inputPinternet.disabled = false;
+  } else {
+    inputAnydesk.value = '';
+    inputPinternet.value = '';
+    inputAnydesk.disabled = true;
+    inputPinternet.disabled = true;
+  }
 });
