@@ -42,7 +42,7 @@ submitBtn.addEventListener('click', function() {
   setTimeout(function() {
     spinnerBtn.classList.add('d-none');
     submitBtn.disabled = false; // Habilitar el botón de envío después de 2 segundos
-  }, 3000);
+  }, 5000);
 });
 
 
