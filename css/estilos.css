@@ -67,3 +67,53 @@ input[type=number] {
       overflow-x: hidden;
     }
   }
+
+
+.bgUno{
+
+
+    background: #C02425;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #F0CB35, #C02425);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #F0CB35, #C02425); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+.cbgOrange{
+
+    background-color: rgb(248, 132, 0) !important;;
+   
+  
+    
+}
+
+.cOrange {
+
+
+    color: rgb(248, 132, 0);;
+}
+
+.cnav {
+
+background: #FDC830;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+
+
+
+.cTitulo {
+
+    background: #fc4a1a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+
+
+}
+
+
+

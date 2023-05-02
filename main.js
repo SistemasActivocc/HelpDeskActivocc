@@ -138,3 +138,40 @@ selectModalidad.addEventListener('change', () => {
     inputPinternet.disabled = true;
   }
 });
+
+
+
+//Nombre de equipo
+
+// Obtener elementos del DOM
+const modalidad = document.getElementById('Smodalidad');
+const nombreEquipo = document.getElementsByName('Nombre Equipo')[0];
+
+// Agregar un controlador de eventos para el menú desplegable
+modalidad.addEventListener('change', function() {
+  if (modalidad.value === 'Home Office') {
+    nombreEquipo.disabled = true;
+    nombreEquipo.value = '';
+  } else {
+    nombreEquipo.disabled = false;
+  }
+});
+
+// Agregar un controlador de eventos para el campo de entrada de texto
+nombreEquipo.addEventListener('change', function() {
+  if (nombreEquipo.disabled) {
+    nombreEquipo.value = '';
+  }
+});
+
+
+//Validaciones
+
+var formulario = document.getElementById("formulario");
+var campos = formulario.querySelectorAll("input[type=text], textarea");
+
+for (var i = 0; i < campos.length; i++) {
+  campos[i].addEventListener("input", function() {
+    this.value = this.value.replace(/[^a-zA-Z0-9]/g, '');
+  });
+}
