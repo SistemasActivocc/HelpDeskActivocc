@@ -67,6 +67,7 @@ submitBtn.addEventListener('click', function() {
         submitBtn.disabled = true;
         setTimeout(function() {
           submitBtn.disabled = false;
+          document.getElementById("formulario").reset();
         }, 5000);
       }
 
@@ -95,7 +96,7 @@ window.addEventListener('DOMContentLoaded', () => {
       })
      
       window.location.href = "success.html";
-      document.getElementById("formulario").reset();
+      
       
     } else {
       mensaje.textContent = 'Error al enviar el formulario.'
