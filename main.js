@@ -88,9 +88,10 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       })
      
-      
+      form.reset(); // Restablecer el formulario a su estado inicial
+      form.classList.remove('was-validated'); // Eliminar las clases "was-validated" del formulario
       window.location.href = "success.html";
-      document.getElementById("formulario").reset();
+     
       
       
     } else {
