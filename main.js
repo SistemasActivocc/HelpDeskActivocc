@@ -175,4 +175,3 @@ for (var i = 0; i < campos.length; i++) {
     this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '');
   });
 }
-
