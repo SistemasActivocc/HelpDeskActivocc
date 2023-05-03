@@ -95,7 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
       })
      
       window.location.href = "success.html";
-      form.reset()
+      document.getElementById("formulario").reset();
       
     } else {
       mensaje.textContent = 'Error al enviar el formulario.'
