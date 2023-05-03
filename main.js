@@ -1,4 +1,7 @@
 
+
+
+
 // Formulario de selección de tipo de usuario y su nombre de usuario correspondiente
 const tipoUsuario = document.getElementById('tipoUsuario');
 const usuario = document.getElementById('usuario');
@@ -32,24 +35,23 @@ usernameField.addEventListener("input", updateEmailField);
 serverField.addEventListener("change", updateEmailField);
 
 
-// Botón de envío de formulario con animación de carga
+
+
 const submitBtn = document.getElementById('submitBtn');
 const spinnerBtn = document.getElementById('spinnerBtn');
 
 submitBtn.addEventListener('click', function() {
-  submitBtn.disabled = true; // Deshabilitar el botón de envío
   spinnerBtn.classList.remove('d-none');
   setTimeout(function() {
     spinnerBtn.classList.add('d-none');
-    submitBtn.disabled = false; // Habilitar el botón de envío después de 2 segundos
   }, 5000);
 });
 
 
 
 
-// Validación del formulario con Bootstrap
-(() => {
+ //Validación del formulario con Bootstrap
+ (() => {
   'use strict'
 
   const forms = document.querySelectorAll('.needs-validation')
@@ -59,12 +61,21 @@ submitBtn.addEventListener('click', function() {
       if (!form.checkValidity()) {
         event.preventDefault()
         event.stopPropagation()
+      } else {
+        // Deshabilitar el botón de enviar por 2 segundos
+        const submitBtn = form.querySelector('[type="submit"]');
+        submitBtn.disabled = true;
+        setTimeout(function() {
+          submitBtn.disabled = false;
+        }, 5000);
       }
 
       form.classList.add('was-validated')
     }, false)
   })
 })()
+
+
 
 
 // Envío de formulario mediante AJAX
@@ -82,7 +93,9 @@ window.addEventListener('DOMContentLoaded', () => {
           feedback.textContent = ''
         }
       })
+     
       window.location.href = "success.html";
+      
     } else {
       mensaje.textContent = 'Error al enviar el formulario.'
       mensaje.style.color = 'red'
@@ -110,6 +123,39 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Reinicio del formulario al cargar la página
 window.addEventListener("load", function() {
   document.getElementById("formulario").reset();
@@ -118,6 +164,7 @@ window.addEventListener("load", function() {
 
 
 // Campos de Info PC solo si es Home Office
+
 
 const selectModalidad = document.getElementById('Smodalidad');
 const inputAnydesk = document.getElementById('Anydesk');
@@ -175,3 +222,4 @@ for (var i = 0; i < campos.length; i++) {
     this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '');
   });
 }
+
