@@ -86,6 +86,7 @@ window.addEventListener('DOMContentLoaded', () => {
       });
 
       document.getElementById("formulario").reset();
+      form.classList.remove('was-validated');
       window.location.replace('success.html');
     } else {
       mensaje.textContent = 'Error al enviar el formulario.';
