@@ -1,7 +1,3 @@
-
-
-
-
 // Formulario de selección de tipo de usuario y su nombre de usuario correspondiente
 const tipoUsuario = document.getElementById('tipoUsuario');
 const usuario = document.getElementById('usuario');
@@ -38,8 +34,8 @@ serverField.addEventListener("change", updateEmailField);
 
 
 
+//Deshabilitar el boton de envio
 
- //Deshabilitar Submit
  (() => {
   const forms = document.querySelectorAll('.needs-validation')
 
@@ -57,6 +53,8 @@ serverField.addEventListener("change", updateEmailField);
 
 
 
+//Spinner
+
 const submitBtn = document.getElementById('submitBtn');
 const spinnerBtn = document.getElementById('spinnerBtn');
 
@@ -71,60 +69,49 @@ submitBtn.addEventListener('click', function() {
 
 
 
-
 // Envío de formulario mediante AJAX
 window.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form')
-  const mensaje = document.querySelector('#mensaje')
+  const form = document.querySelector('form');
+  const mensaje = document.getElementById('mensaje');
+  const invalidFields = Array.from(document.getElementsByClassName('is-invalid'));
 
   function handleFormResponse(data) {
     if (data.result === 'success') {
-      const invalidFields = document.querySelectorAll('.is-invalid')
-      invalidFields.forEach(field => {
-        field.classList.remove('is-invalid')
-        const feedback = field.nextElementSibling
+      invalidFields.forEach((field) => {
+        field.classList.remove('is-invalid');
+        const feedback = field.nextElementSibling;
         if (feedback && feedback.classList.contains('invalid-feedback')) {
-          feedback.textContent = ''
+          feedback.textContent = '';
         }
-      })
-     
-      form.reset(); // Restablecer el formulario a su estado inicial
-      form.classList.remove('was-validated'); // Eliminar las clases "was-validated" del formulario
-      window.location.href = "success.html";
-     
-      
-      
+      });
+
+      document.getElementById("formulario").reset();
+      window.location.replace('success.html');
     } else {
-      mensaje.textContent = 'Error al enviar el formulario.'
-      mensaje.style.color = 'red'
+      mensaje.textContent = 'Error al enviar el formulario.';
+      mensaje.style.color = 'red';
     }
   }
 
   form.addEventListener('submit', (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     if (form.checkValidity()) {
       fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
       })
-        .then(response => response.json())
-        .then(data => handleFormResponse(data))
-        .catch(error => {
-          mensaje.textContent = 'Error al enviar el formulario.'
-          mensaje.style.color = 'red'
-        })
+        .then((response) => response.json())
+        .then((data) => handleFormResponse(data))
+        .catch(() => {
+          mensaje.textContent = 'Error al enviar el formulario.';
+          mensaje.style.color = 'red';
+        });
     }
 
-    form.classList.add('was-validated')
-  })
-})
-
-
-
-
-
-
+    form.classList.toggle('was-validated');
+  });
+});
 
 
 
