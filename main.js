@@ -37,44 +37,37 @@ serverField.addEventListener("change", updateEmailField);
 
 
 
+
+
+ //Deshabilitar Submit
+ (() => {
+  const forms = document.querySelectorAll('.needs-validation')
+
+  forms.forEach(form => {
+    form.addEventListener('submit', event => {
+      if (form.checkValidity()) {
+        const {disabled} = event.submitter;
+        event.submitter.disabled = true;
+        setTimeout(() => disabled || (event.submitter.disabled = false), 5000);
+      }
+    }, false)
+  })
+})()
+
+
+
+
 const submitBtn = document.getElementById('submitBtn');
 const spinnerBtn = document.getElementById('spinnerBtn');
 
 submitBtn.addEventListener('click', function() {
   spinnerBtn.classList.remove('d-none');
+  
   setTimeout(function() {
     spinnerBtn.classList.add('d-none');
+    
   }, 5000);
 });
-
-
-
-
- //Validación del formulario con Bootstrap
- (() => {
-  'use strict'
-
-  const forms = document.querySelectorAll('.needs-validation')
-
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      } else {
-        // Deshabilitar el botón de enviar por 2 segundos
-        const submitBtn = form.querySelector('[type="submit"]');
-        submitBtn.disabled = true;
-        setTimeout(function() {
-          submitBtn.disabled = false;
-          
-        }, 5000);
-      }
-
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
 
 
 
@@ -95,8 +88,10 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       })
      
+      
       window.location.href = "success.html";
       document.getElementById("formulario").reset();
+      
       
     } else {
       mensaje.textContent = 'Error al enviar el formulario.'
@@ -123,6 +118,9 @@ window.addEventListener('DOMContentLoaded', () => {
     form.classList.add('was-validated')
   })
 })
+
+
+
 
 
 
