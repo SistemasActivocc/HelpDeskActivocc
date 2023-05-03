@@ -95,6 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
       })
      
       window.location.href = "success.html";
+      form.reset()
       
     } else {
       mensaje.textContent = 'Error al enviar el formulario.'
@@ -121,35 +122,6 @@ window.addEventListener('DOMContentLoaded', () => {
     form.classList.add('was-validated')
   })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
