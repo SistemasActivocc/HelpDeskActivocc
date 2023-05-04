@@ -72,22 +72,22 @@ submitBtn.addEventListener('click', function() {
 window.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('form');
   const mensaje = document.querySelector('#mensaje');
-  const invalidFields = document.querySelectorAll('.is-invalid');
-  const feedbacks = document.querySelectorAll('.invalid-feedback');
+  const invalidFields = Array.from(form.querySelectorAll(':invalid'));
+  const feedbacks = Array.from(form.querySelectorAll('.invalid-feedback'));
 
   function handleFormResponse(data) {
     if (data.result === 'success') {
-      for (const field of invalidFields) {
+      invalidFields.forEach(field => {
         field.classList.remove('is-invalid');
-      }
-      for (const feedback of feedbacks) {
+      });
+      feedbacks.forEach(feedback => {
         if (feedback.textContent) {
           feedback.textContent = '';
         }
-      }
+      });
 
-      document.getElementById("formulario").reset(); // Restablecer el formulario a su estado inicial
-      form.classList.remove('was-validated'); // Eliminar las clases "was-validated" del formulario
+      form.reset();
+      form.classList.remove('was-validated');
       window.location.replace('success.html');
     } else {
       mensaje.textContent = 'Error al enviar el formulario.';
