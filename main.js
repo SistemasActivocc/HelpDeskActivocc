@@ -52,7 +52,6 @@ serverField.addEventListener("change", updateEmailField);
 
 
 
-
 //Spinner
 
 const submitBtn = document.getElementById('submitBtn');
@@ -72,21 +71,23 @@ submitBtn.addEventListener('click', function() {
 // Envío de formulario mediante AJAX
 window.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('form');
-  const mensaje = document.getElementById('mensaje');
-  const invalidFields = Array.from(document.getElementsByClassName('is-invalid'));
+  const mensaje = document.querySelector('#mensaje');
+  const invalidFields = document.querySelectorAll('.is-invalid');
+  const feedbacks = document.querySelectorAll('.invalid-feedback');
 
   function handleFormResponse(data) {
     if (data.result === 'success') {
-      invalidFields.forEach((field) => {
+      for (const field of invalidFields) {
         field.classList.remove('is-invalid');
-        const feedback = field.nextElementSibling;
-        if (feedback && feedback.classList.contains('invalid-feedback')) {
+      }
+      for (const feedback of feedbacks) {
+        if (feedback.textContent) {
           feedback.textContent = '';
         }
-      });
+      }
 
-      document.getElementById("formulario").reset();
-      form.classList.remove('was-validated');
+      document.getElementById("formulario").reset(); // Restablecer el formulario a su estado inicial
+      form.classList.remove('was-validated'); // Eliminar las clases "was-validated" del formulario
       window.location.replace('success.html');
     } else {
       mensaje.textContent = 'Error al enviar el formulario.';
@@ -96,24 +97,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-
     if (form.checkValidity()) {
       fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
       })
-        .then((response) => response.json())
-        .then((data) => handleFormResponse(data))
-        .catch(() => {
+        .then(response => response.json())
+        .then(data => handleFormResponse(data))
+        .catch(error => {
           mensaje.textContent = 'Error al enviar el formulario.';
           mensaje.style.color = 'red';
         });
     }
-
-    form.classList.toggle('was-validated');
+    form.classList.add('was-validated');
   });
 });
-
 
 
 // Reinicio del formulario al cargar la página
