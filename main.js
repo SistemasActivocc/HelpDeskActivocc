@@ -34,22 +34,43 @@ serverField.addEventListener("change", updateEmailField);
 
 
 
-//Deshabilitar el boton de envio
+//Deshabilitar el boton de envio y Avisar de campos invalidos en el submit
 
- (() => {
-  const forms = document.querySelectorAll('.needs-validation')
+(() => {
+  const forms = document.querySelectorAll('.needs-validation');
+  const mensaje = document.querySelector('#mensaje');
+
+  function hideMessage() {
+    mensaje.textContent = '';
+  }
+
+  function clearMessageOnFocus(event) {
+    const feedback = event.target.closest('.form-floating').querySelector('.invalid-feedback');
+    feedback.textContent = '';
+  }
+
+  function handleFormSubmit(event) {
+    const form = event.target;
+    if (form.checkValidity()) {
+      const {disabled} = event.submitter;
+      event.submitter.disabled = true;
+      setTimeout(() => disabled || (event.submitter.disabled = false), 5000);
+    } else {
+      mensaje.textContent = 'Campos inválidos en el formulario.';
+      mensaje.style.color = 'red';
+    }
+  }
 
   forms.forEach(form => {
-    form.addEventListener('submit', event => {
-      if (form.checkValidity()) {
-        const {disabled} = event.submitter;
-        event.submitter.disabled = true;
-        setTimeout(() => disabled || (event.submitter.disabled = false), 5000);
-      }
-    }, false)
-  })
-})()
+    form.addEventListener('submit', handleFormSubmit, false);
 
+    const inputs = form.querySelectorAll('input');
+    inputs.forEach(input => {
+      input.addEventListener('input', hideMessage, false);
+      input.addEventListener('focus', clearMessageOnFocus, false);
+    });
+  });
+})();
 
 
 //Spinner
@@ -63,7 +84,7 @@ submitBtn.addEventListener('click', function() {
   setTimeout(function() {
     spinnerBtn.classList.add('d-none');
     
-  }, 5000);
+  }, 3000);
 });
 
 
