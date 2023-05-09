@@ -69,6 +69,12 @@ serverField.addEventListener("change", updateEmailField);
       input.addEventListener('input', hideMessage, false);
       input.addEventListener('focus', clearMessageOnFocus, false);
     });
+
+    const selects = form.querySelectorAll('select');
+    selects.forEach(select => {
+      select.addEventListener('change', hideMessage, false);
+      select.addEventListener('focus', clearMessageOnFocus, false);
+    });
   });
 })();
 
