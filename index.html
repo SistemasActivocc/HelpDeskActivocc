@@ -1966,15 +1966,29 @@
     
     <div class="form-floating">
       <select class="form-select" id="pcinsite" name="pcinsite" required>
+      
+
        <option selected disabled value="">Seleccionar...</option>
      
+
+
+       <optgroup label="El PC se encuentra encendido/con internet/usuario de windows iniciado?"> 
+
+        <option value="Si">Si, se encuentra en ese estado.</option>
+        <option value="No">No, no se encuentra en ese estado.</option>
         
-        <option value="Si">Si</option>
-        <option value="No">No</option>
+
+       </optgroup>
+
+
+
+
+        
+       
       
 
       </select>
-      <label for="pcinsite">Pc encendida/con internet/usuario de windows iniciado</label>
+      <label for="pcinsite">Estado del equipo</label>
 
       
       <div class="invalid-feedback">
@@ -2003,7 +2017,7 @@
     <div class="input-group mb-3">
       
       <div class="form-floating">
-        <input type="text" class="form-control" id="NomDispositivo" placeholder="Nombre del Dispositivo" name="Nombre Equipo" required>
+        <input type="text" class="form-control" id="NomDispositivo" placeholder="Nombre del Dispositivo" name="Nombre Equipo" maxlength="18" required>
         <label for="NomDispositivo">Nombre del Dispositivo</label>
       </div>
       <span class="input-group-text"><a href="https://drive.google.com/file/d/19bOdotUELQfrhIrdX66zZdaAKnxQ2eOM/view" target="_blank"><i class="fa-solid fa-circle-question"></i></a></span>
@@ -2021,7 +2035,7 @@
     <div class="input-group mb-3">
       <span class="input-group-text">BOX</span>
       <div class="form-floating">
-        <input type="text" class="form-control" id="NroPuesto" name="NroPuesto" placeholder="Username" required>
+        <input type="text" class="form-control" id="NroPuesto" name="NroPuesto" placeholder="Username"  maxlength="3" required>
         <label for="NroPuesto">Nro de Puesto</label>
       </div>
     </div>
