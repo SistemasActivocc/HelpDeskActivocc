@@ -175,26 +175,76 @@ selectModalidad.addEventListener('change', () => {
 
 //Nombre de equipo
 
-// Obtener elementos del DOM
-const modalidad = document.getElementById('Smodalidad');
-const nombreEquipo = document.getElementsByName('Nombre Equipo')[0];
+const Smodalidad = document.getElementById('Smodalidad');
+const pcinsite = document.getElementById('pcinsite');
+const NomDispositivo = document.getElementById('NomDispositivo');
+const NroPuesto = document.getElementById('NroPuesto');
 
-// Agregar un controlador de eventos para el menú desplegable
-modalidad.addEventListener('change', function() {
-  if (modalidad.value === 'Home Office') {
-    nombreEquipo.disabled = true;
-    nombreEquipo.value = '';
+function toggleFields() {
+  // Habilitar/Deshabilitar campo NomDispositivo
+  if (pcinsite.value === 'No') {
+    const currentNomDispositivoValue = NomDispositivo.value; // Guardar el valor actual de NomDispositivo
+    NomDispositivo.value = ''; // Establecer el valor en blanco
+    NomDispositivo.disabled = true; // Deshabilitar el campo
   } else {
-    nombreEquipo.disabled = false;
+    NomDispositivo.disabled = false;
   }
-});
 
-// Agregar un controlador de eventos para el campo de entrada de texto
-nombreEquipo.addEventListener('change', function() {
-  if (nombreEquipo.disabled) {
-    nombreEquipo.value = '';
+  // Habilitar/Deshabilitar campos pcinsite y NroPuesto
+  if (Smodalidad.value !== 'Home Office') {
+    pcinsite.disabled = false;
+    NroPuesto.disabled = false;
+
+    // Habilitar/Deshabilitar campo NomDispositivo si se selecciona 'Si' en pcinsite
+    if (pcinsite.value === 'Si') {
+      NomDispositivo.disabled = false;
+    } else {
+      const currentNomDispositivoValue = NomDispositivo.value; // Guardar el valor actual de NomDispositivo
+      NomDispositivo.value = ''; // Establecer el valor en blanco
+      NomDispositivo.disabled = true; // Deshabilitar el campo
+    }
+
+    // Limpiar el valor de pcinsite y NroPuesto si están deshabilitados
+    if (pcinsite.disabled) {
+      const currentPcinsiteValue = pcinsite.value; // Guardar el valor actual de pcinsite
+      pcinsite.value = ''; // Establecer el valor en blanco
+    }
+
+    if (NroPuesto.disabled) {
+      const currentNroPuestoValue = NroPuesto.value; // Guardar el valor actual de NroPuesto
+      NroPuesto.value = ''; // Establecer el valor en blanco
+    }
+  } else {
+    pcinsite.disabled = true;
+    NroPuesto.disabled = true;
+    const currentNomDispositivoValue = NomDispositivo.value; // Guardar el valor actual de NomDispositivo
+    NomDispositivo.value = ''; // Establecer el valor en blanco
+    NomDispositivo.disabled = true; // Deshabilitar el campo
+
+    // Limpiar el valor de pcinsite y NroPuesto si están deshabilitados
+    const currentPcinsiteValue = pcinsite.value; // Guardar el valor actual de pcinsite
+    const currentNroPuestoValue = NroPuesto.value; // Guardar el valor actual de NroPuesto
+    pcinsite.value = ''; // Establecer el valor en blanco
+    NroPuesto.value = ''; // Establecer el valor en blanco
   }
-});
+}
+
+// Llamada a la función toggleFields() cuando cambian los valores de los campos relevantes
+Smodalidad.addEventListener('change', toggleFields);
+pcinsite.addEventListener('change', toggleFields);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Validaciones de caracteres especiales.
