@@ -181,64 +181,44 @@ const NomDispositivo = document.getElementById('NomDispositivo');
 const NroPuesto = document.getElementById('NroPuesto');
 
 function toggleFields() {
+  const modalidad = Smodalidad.value;
+  const insite = pcinsite.value;
+  
   // Habilitar/Deshabilitar campo NomDispositivo
-  if (pcinsite.value === 'No') {
-    const currentNomDispositivoValue = NomDispositivo.value; // Guardar el valor actual de NomDispositivo
-    NomDispositivo.value = ''; // Establecer el valor en blanco
-    NomDispositivo.disabled = true; // Deshabilitar el campo
-  } else {
+  const isNoInsite = insite === 'No';
+  NomDispositivo.disabled = isNoInsite;
+  if (isNoInsite) {
+    NomDispositivo.value = '';
+  }
+  
+  // Habilitar/Deshabilitar campos pcinsite y NroPuesto
+  const isHomeOffice = modalidad === 'Home Office';
+  pcinsite.disabled = isHomeOffice;
+  NroPuesto.disabled = isHomeOffice;
+
+  // Habilitar/Deshabilitar campo NomDispositivo si se selecciona 'Si' en pcinsite
+  if (!isHomeOffice && insite === 'Si') {
     NomDispositivo.disabled = false;
   }
 
-  // Habilitar/Deshabilitar campos pcinsite y NroPuesto
-  if (Smodalidad.value !== 'Home Office') {
-    pcinsite.disabled = false;
-    NroPuesto.disabled = false;
-
-    // Habilitar/Deshabilitar campo NomDispositivo si se selecciona 'Si' en pcinsite
-    if (pcinsite.value === 'Si') {
-      NomDispositivo.disabled = false;
-    } else {
-      const currentNomDispositivoValue = NomDispositivo.value; // Guardar el valor actual de NomDispositivo
-      NomDispositivo.value = ''; // Establecer el valor en blanco
-      NomDispositivo.disabled = true; // Deshabilitar el campo
-    }
-
-    // Limpiar el valor de pcinsite y NroPuesto si están deshabilitados
-    if (pcinsite.disabled) {
-      const currentPcinsiteValue = pcinsite.value; // Guardar el valor actual de pcinsite
-      pcinsite.value = ''; // Establecer el valor en blanco
-    }
-
-    if (NroPuesto.disabled) {
-      const currentNroPuestoValue = NroPuesto.value; // Guardar el valor actual de NroPuesto
-      NroPuesto.value = ''; // Establecer el valor en blanco
-    }
-  } else {
-    pcinsite.disabled = true;
-    NroPuesto.disabled = true;
-    const currentNomDispositivoValue = NomDispositivo.value; // Guardar el valor actual de NomDispositivo
-    NomDispositivo.value = ''; // Establecer el valor en blanco
-    NomDispositivo.disabled = true; // Deshabilitar el campo
-
-    // Limpiar el valor de pcinsite y NroPuesto si están deshabilitados
-    const currentPcinsiteValue = pcinsite.value; // Guardar el valor actual de pcinsite
-    const currentNroPuestoValue = NroPuesto.value; // Guardar el valor actual de NroPuesto
-    pcinsite.value = ''; // Establecer el valor en blanco
-    NroPuesto.value = ''; // Establecer el valor en blanco
+  // Limpiar el valor de pcinsite y NroPuesto si están deshabilitados
+  if (pcinsite.disabled) {
+    pcinsite.value = '';
+  }
+  if (NroPuesto.disabled) {
+    NroPuesto.value = '';
+  }
+  
+  // Limpiar el valor de NomDispositivo si está deshabilitado en Home Office
+  if (isHomeOffice) {
+    NomDispositivo.value = '';
+    NomDispositivo.disabled = true;
   }
 }
 
 // Llamada a la función toggleFields() cuando cambian los valores de los campos relevantes
 Smodalidad.addEventListener('change', toggleFields);
 pcinsite.addEventListener('change', toggleFields);
-
-
-
-
-
-
-
 
 
 
