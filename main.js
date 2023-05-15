@@ -49,10 +49,15 @@ serverField.addEventListener("change", updateEmailField);
     feedback.textContent = '';
   }
 
+  function clearMessageOnFocusTextarea(event) {
+    const feedback = event.target.closest('.mb-1').querySelector('.invalid-feedback');
+    feedback.textContent = '';
+  }
+
   function handleFormSubmit(event) {
     const form = event.target;
     if (form.checkValidity()) {
-      const {disabled} = event.submitter;
+      const { disabled } = event.submitter;
       event.submitter.disabled = true;
       setTimeout(() => disabled || (event.submitter.disabled = false), 5000);
     } else {
@@ -61,23 +66,26 @@ serverField.addEventListener("change", updateEmailField);
     }
   }
 
-  forms.forEach(form => {
+  forms.forEach((form) => {
     form.addEventListener('submit', handleFormSubmit, false);
 
     const inputs = form.querySelectorAll('input');
-    inputs.forEach(input => {
+    inputs.forEach((input) => {
       input.addEventListener('input', hideMessage, false);
       input.addEventListener('focus', clearMessageOnFocus, false);
     });
 
     const selects = form.querySelectorAll('select');
-    selects.forEach(select => {
+    selects.forEach((select) => {
       select.addEventListener('change', hideMessage, false);
       select.addEventListener('focus', clearMessageOnFocus, false);
     });
+
+    const textarea = form.querySelector('textarea');
+    textarea.addEventListener('input', hideMessage, false);
+    textarea.addEventListener('focus', clearMessageOnFocusTextarea, false);
   });
 })();
-
 
 //Spinner
 
