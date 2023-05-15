@@ -87,19 +87,7 @@ serverField.addEventListener("change", updateEmailField);
   });
 })();
 
-//Spinner
 
-const submitBtn = document.getElementById('submitBtn');
-const spinnerBtn = document.getElementById('spinnerBtn');
-
-submitBtn.addEventListener('click', function() {
-  spinnerBtn.classList.remove('d-none');
-  
-  setTimeout(function() {
-    spinnerBtn.classList.add('d-none');
-    
-  }, 3000);
-});
 
 
 
