@@ -171,50 +171,64 @@ selectModalidad.addEventListener('change', () => {
 
 //Nombre de equipo
 
-const Smodalidad = document.getElementById('Smodalidad');
-const pcinsite = document.getElementById('pcinsite');
-const NomDispositivo = document.getElementById('NomDispositivo');
-const NroPuesto = document.getElementById('NroPuesto');
+// Obtener referencias a los elementos del DOM
+const estadoEquipo = document.querySelectorAll('input[name="estadoEquipo"]');
+const modalidad = document.getElementById("Smodalidad");
+const nomDispositivo = document.getElementById("NomDispositivo");
+const nroPuesto = document.getElementById("NroPuesto");
+const formCheckEstadoEquipo = document.querySelectorAll('input[name="estadoEquipo"]:not([disabled])');
 
-function toggleFields() {
-  const modalidad = Smodalidad.value;
-  const insite = pcinsite.value;
-  
-  // Habilitar/Deshabilitar campo NomDispositivo
-  const isNoInsite = insite === 'No';
-  NomDispositivo.disabled = isNoInsite;
-  if (isNoInsite) {
-    NomDispositivo.value = '';
+// Función para deshabilitar los elementos del form-group de estadoEquipo, NomDispositivo y NroPuesto
+function deshabilitarElementos() {
+  for (let i = 0; i < estadoEquipo.length; i++) {
+    estadoEquipo[i].disabled = true;
+    estadoEquipo[i].checked = false;
   }
-  
-  // Habilitar/Deshabilitar campos pcinsite y NroPuesto
-  const isHomeOffice = modalidad === 'Home Office';
-  pcinsite.disabled = isHomeOffice;
-  NroPuesto.disabled = isHomeOffice;
+  nomDispositivo.disabled = true;
+  nomDispositivo.value = ""; // Limpiar el valor ingresado
+  nroPuesto.disabled = true;
+  nroPuesto.value = ""; // Limpiar el valor ingresado
+}
 
-  // Habilitar/Deshabilitar campo NomDispositivo si se selecciona 'Si' en pcinsite
-  if (!isHomeOffice && insite === 'Si') {
-    NomDispositivo.disabled = false;
-  }
+// Función para habilitar el elemento NomDispositivo
+function habilitarNomDispositivo() {
+  nomDispositivo.disabled = false;
+}
 
-  // Limpiar el valor de pcinsite y NroPuesto si están deshabilitados
-  if (pcinsite.disabled) {
-    pcinsite.value = '';
+// Evento change en el select Smodalidad
+modalidad.addEventListener("change", function () {
+  if (modalidad.value === "Home Office") {
+    deshabilitarElementos();
+  } else {
+    for (let i = 0; i < estadoEquipo.length; i++) {
+      estadoEquipo[i].disabled = false;
+    }
+    nroPuesto.disabled = false;
   }
-  if (NroPuesto.disabled) {
-    NroPuesto.value = '';
-  }
-  
-  // Limpiar el valor de NomDispositivo si está deshabilitado en Home Office
-  if (isHomeOffice) {
-    NomDispositivo.value = '';
-    NomDispositivo.disabled = true;
+});
+
+// Evento change en los radios de estadoEquipo
+for (let i = 0; i < estadoEquipo.length; i++) {
+  estadoEquipo[i].addEventListener("change", function () {
+    if (estadoEquipo[i].checked && estadoEquipo[i].value === "si") {
+      habilitarNomDispositivo();
+    } else {
+      nomDispositivo.disabled = true;
+      nomDispositivo.value = ""; // Limpiar el valor ingresado
+    }
+  });
+}
+
+// Limpiar los form-check de estadoEquipo cuando se deshabilitan
+function limpiarFormCheckEstadoEquipo() {
+  for (let i = 0; i < formCheckEstadoEquipo.length; i++) {
+    formCheckEstadoEquipo[i].checked = false;
   }
 }
 
-// Llamada a la función toggleFields() cuando cambian los valores de los campos relevantes
-Smodalidad.addEventListener('change', toggleFields);
-pcinsite.addEventListener('change', toggleFields);
+// Llamar a la función para limpiar los form-check de estadoEquipo al cargar la página
+limpiarFormCheckEstadoEquipo();
+
 
 
 
