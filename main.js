@@ -1,3 +1,29 @@
+//lOGIN
+
+
+function validarClave() {
+  var clave = document.getElementById("clave").value;
+
+  // Realizar validación de la clave 
+  if (clave === "Activocc_2023_Ticket") {
+      // Establecer la cookie de sesión con fecha de expiración
+      var fechaExpiracion = new Date();
+      fechaExpiracion.setMinutes(fechaExpiracion.getMinutes() + 60); // La cookie expirará en 60 minutos
+      document.cookie = "sesionIniciada=true; expires=" + fechaExpiracion.toUTCString();
+      redirigirAIndex();
+  } else {
+      document.getElementById("mensaje-error").textContent = "Clave incorrecta. Intenta nuevamente.";
+  }
+}
+
+function redirigirAIndex() {
+  window.location.href = "index.html";
+}
+
+
+
+
+
 // Formulario de selección de tipo de usuario y su nombre de usuario correspondiente
 const tipoUsuario = document.getElementById('tipoUsuario');
 const usuario = document.getElementById('usuario');
@@ -233,10 +259,6 @@ limpiarFormCheckEstadoEquipo();
 
 
 
-
-
-
-
 //Validaciones de caracteres especiales.
 
 var formulario = document.getElementById("formulario");
@@ -248,24 +270,3 @@ for (var i = 0; i < campos.length; i++) {
   });
 }
 
-//lOGIN
-
-
-function validarClave() {
-  var clave = document.getElementById("clave").value;
-
-  // Realizar validación de la clave 
-  if (clave === "Activocc_2023_Ticket") {
-      // Establecer la cookie de sesión con fecha de expiración
-      var fechaExpiracion = new Date();
-      fechaExpiracion.setMinutes(fechaExpiracion.getMinutes() + 60); // La cookie expirará en 60 minutos
-      document.cookie = "sesionIniciada=true; expires=" + fechaExpiracion.toUTCString();
-      redirigirAIndex();
-  } else {
-      document.getElementById("mensaje-error").textContent = "Clave incorrecta. Intenta nuevamente.";
-  }
-}
-
-function redirigirAIndex() {
-  window.location.href = "index.html";
-}
