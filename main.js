@@ -248,3 +248,23 @@ for (var i = 0; i < campos.length; i++) {
   });
 }
 
+//lOGIN
+
+function validarClave() {
+  var clave = document.getElementById("clave").value;
+
+  // Realizar validación de la clave (aquí puedes agregar tu propia lógica de validación)
+  if (clave === "Activocc") {
+      // Establecer la cookie de sesión con fecha de expiración
+      var fechaExpiracion = new Date();
+      fechaExpiracion.setMinutes(fechaExpiracion.getMinutes() + 20); // La cookie expirará en 30 minutos
+      document.cookie = "sesionIniciada=true; expires=" + fechaExpiracion.toUTCString();
+      redirigirAIndex();
+  } else {
+      document.getElementById("mensaje-error").textContent = "Clave incorrecta. Intenta nuevamente.";
+  }
+}
+
+function redirigirAIndex() {
+  window.location.href = "index.html";
+}
