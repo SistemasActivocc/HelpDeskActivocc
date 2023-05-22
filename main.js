@@ -257,7 +257,7 @@ function validarClave() {
   if (clave === "Activocc_2023_Ticket") {
       // Establecer la cookie de sesión con fecha de expiración
       var fechaExpiracion = new Date();
-      fechaExpiracion.setMinutes(fechaExpiracion.getMinutes() + 20); // La cookie expirará en 30 minutos
+      fechaExpiracion.setMinutes(fechaExpiracion.getMinutes() + 60); // La cookie expirará en 30 minutos
       document.cookie = "sesionIniciada=true; expires=" + fechaExpiracion.toUTCString();
       redirigirAIndex();
   } else {
