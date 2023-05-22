@@ -6,11 +6,9 @@ function validarClave() {
 
   // Realizar validación de la clave 
   if (clave === "Activocc_2023_Ticket") {
-      // Establecer la cookie de sesión con fecha de expiración
-      var fechaExpiracion = new Date();
-      fechaExpiracion.setMinutes(fechaExpiracion.getMinutes() + 60); // La cookie expirará en 60 minutos
-      document.cookie = "sesionIniciada=true; expires=" + fechaExpiracion.toUTCString();
-      redirigirAIndex();
+     // Establecer la cookie de sesión sin fecha de expiración
+     document.cookie = "sesionIniciada=true";
+     redirigirAIndex();
   } else {
       document.getElementById("mensaje-error").textContent = "Clave incorrecta. Intenta nuevamente.";
   }
