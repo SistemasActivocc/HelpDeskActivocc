@@ -22,6 +22,22 @@
 <body class="mb-4">
 
 
+  <script>
+    function redirigirALogin() {
+                // Verificar si se encuentra la cookie de sesión
+                var sesionIniciada = document.cookie.indexOf("sesionIniciada=") !== -1;
+    
+                if (!sesionIniciada) {
+                    window.location.href = "login.html";
+                }
+            }
+    
+            redirigirALogin();
+    
+    </script>
+
+
+
 
 <div class="container bgUno mt-5 text-white border p-4 border-white rounded-3">
 
@@ -112,18 +128,6 @@
 <!-- Font Awesome  -->
  <script src="https://kit.fontawesome.com/60be70fbe4.js" crossorigin="anonymous"></script>
 
- <script>
-  function redirigirALogin() {
-              // Verificar si se encuentra la cookie de sesión
-              var sesionIniciada = document.cookie.indexOf("sesionIniciada=") !== -1;
-  
-              if (!sesionIniciada) {
-                  window.location.href = "login.html";
-              }
-          }
-  
-          redirigirALogin();
-  
-  </script>
+
 </body>
 </html>
