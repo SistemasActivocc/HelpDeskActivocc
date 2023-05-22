@@ -254,10 +254,12 @@ for (var i = 0; i < campos.length; i++) {
 function validarClave() {
   var clave = document.getElementById("clave").value;
 
- 
+  // Realizar validación de la clave 
   if (clave === "Activocc_2023_Ticket") {
-      // Establecer la cookie de sesión sin fecha de expiración
-      document.cookie = "sesionIniciada=true";
+      // Establecer la cookie de sesión con fecha de expiración
+      var fechaExpiracion = new Date();
+      fechaExpiracion.setMinutes(fechaExpiracion.getMinutes() + 60); // La cookie expirará en 60 minutos
+      document.cookie = "sesionIniciada=true; expires=" + fechaExpiracion.toUTCString();
       redirigirAIndex();
   } else {
       document.getElementById("mensaje-error").textContent = "Clave incorrecta. Intenta nuevamente.";
@@ -267,8 +269,3 @@ function validarClave() {
 function redirigirAIndex() {
   window.location.href = "index.html";
 }
-
-// Escuchar el evento "beforeunload" para eliminar la cookie al cerrar el navegador
-window.addEventListener("beforeunload", function() {
-  document.cookie = "sesionIniciada=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-});
