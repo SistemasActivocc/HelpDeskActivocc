@@ -254,7 +254,7 @@ function validarClave() {
   var clave = document.getElementById("clave").value;
 
   // Realizar validación de la clave (aquí puedes agregar tu propia lógica de validación)
-  if (clave === "Activocc") {
+  if (clave === "Activocc_2023_Ticket") {
       // Establecer la cookie de sesión con fecha de expiración
       var fechaExpiracion = new Date();
       fechaExpiracion.setMinutes(fechaExpiracion.getMinutes() + 20); // La cookie expirará en 30 minutos
