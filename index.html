@@ -1592,7 +1592,7 @@
 
         <div class="input-group">
           <div class="form-floating">
-              <input type="text" class="form-control" placeholder="Username" aria-label="Username" id="username" maxlength="25" required>
+              <input type="text" class="form-control" placeholder="Username" aria-label="Username" id="username" maxlength="25" required onkeypress="return /[a-zA-Z\.]/i.test(event.key)">
               <label for="username">Direccion de Email</label>
 
               <div class="invalid-feedback">
