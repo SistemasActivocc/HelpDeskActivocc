@@ -264,7 +264,6 @@ var campos = formulario.querySelectorAll("input[type=text], textarea");
 
 for (var i = 0; i < campos.length; i++) {
   campos[i].addEventListener("input", function() {
-    this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '');
+    this.value = this.value.replace(/[^a-zA-Z0-9.\s]/g, '');
   });
 }
-
