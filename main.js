@@ -83,7 +83,7 @@ serverField.addEventListener("change", updateEmailField);
     if (form.checkValidity()) {
       const { disabled } = event.submitter;
       event.submitter.disabled = true;
-      setTimeout(() => disabled || (event.submitter.disabled = false), 7000);
+      setTimeout(() => disabled || (event.submitter.disabled = false), 9000);
     } else {
       mensaje.textContent = 'Campos inválidos en el formulario.';
       mensaje.style.color = 'red';
