@@ -6,9 +6,14 @@ html {
     background-color: white;
 }
 
-.letrauno{
-    font-family: 'Lato', sans-serif;
+header {
+    font-family: 'IBM Plex Serif', serif !important;
 }
+
+*{
+    font-family: 'PT Serif', serif;
+}
+
 
 
 
