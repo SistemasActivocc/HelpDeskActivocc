@@ -10,9 +10,14 @@ header {
     font-family: 'IBM Plex Serif', serif !important;
 }
 
-*{
+form{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.letraUno{
     font-family: 'PT Serif', serif;
 }
+
 
 
 
