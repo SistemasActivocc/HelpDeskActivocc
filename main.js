@@ -266,3 +266,10 @@ for (var i = 0; i < campos.length; i++) {
     this.value = this.value.replace(/[^a-zA-Z0-9.\s\-]/g, '');
   });
 }
+
+//Eliminacion de saltos de linea.
+var textarea = document.getElementById("comentario");
+
+textarea.addEventListener("input", function() {
+  this.value = this.value.replace(/\n/g, '');
+});
