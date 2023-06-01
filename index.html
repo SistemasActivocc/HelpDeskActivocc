@@ -1984,14 +1984,15 @@
   <div class="col-sm-6">
 
 
-   <div class="form-floating mb-3">
-     <input type="text" class="form-control" id="Anydesk" placeholder="ejemplo" name="NroAnydesk" required pattern="[0-9]+"
-         oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="10">
-     <label for="Anydesk">Nro. de Anydesk</label>
-     <div class="invalid-feedback">
-      Ingrese un nro valido
-     </div>
- </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="Anydesk" placeholder="ejemplo" name="NroAnydesk" required pattern="[0-9]{9,10}"
+          oninput="this.value = this.value.replace(/[^0-9]/g, '')" minlength="9" maxlength="10">
+      <label for="Anydesk">Nro. de Anydesk</label>
+      <div class="invalid-feedback" id="anydesk-error">
+        Ingrese un número válido de 9 a 10 dígitos.
+      </div>
+      
+    </div>
 
  
   </div>
