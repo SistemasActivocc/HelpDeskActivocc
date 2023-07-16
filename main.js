@@ -22,6 +22,37 @@ function redirigirAIndex() {
 
 
 
+
+
+
+
+const formFijo = document.querySelector('form[data-form-type="redirect"]');
+
+if (formFijo) {
+
+// Creación de dirección de correo electrónico a partir del nombre de usuario y el servidor
+const usernameField = document.getElementById("username");
+const serverField = document.getElementById("server");
+const emailField = document.getElementById("email");
+function updateEmailField() {
+    emailField.value = usernameField.value + "@" + serverField.value;
+}
+usernameField.addEventListener("input", updateEmailField);
+serverField.addEventListener("change", updateEmailField);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Formulario de selección de tipo de usuario y su nombre de usuario correspondiente
 const tipoUsuario = document.getElementById('tipoUsuario');
 const usuario = document.getElementById('usuario');
@@ -44,17 +75,21 @@ form.addEventListener('submit', (event) => {
 });
 
 
-// Creación de dirección de correo electrónico a partir del nombre de usuario y el servidor
-const usernameField = document.getElementById("username");
-const serverField = document.getElementById("server");
-const emailField = document.getElementById("email");
-function updateEmailField() {
-    emailField.value = usernameField.value + "@" + serverField.value;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
-usernameField.addEventListener("input", updateEmailField);
-serverField.addEventListener("change", updateEmailField);
-
-
 
 
 
@@ -121,6 +156,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const mensaje = document.querySelector('#mensaje');
   const invalidFields = Array.from(form.querySelectorAll(':invalid'));
   const feedbacks = Array.from(form.querySelectorAll('.invalid-feedback'));
+  const isRedirectForm = form.getAttribute('data-form-type') === 'redirect';
 
   function handleFormResponse(data) {
     if (data.result === 'success') {
@@ -135,7 +171,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
       form.reset();
       form.classList.remove('was-validated');
-      window.location.replace('success.html');
+
+
+      if (isRedirectForm) {
+        window.location.replace('success.html');
+      } else {
+        mensaje.textContent = 'El formulario se envió correctamente.';
+        mensaje.style.color = 'green';
+      }
+
+
     } else {
       mensaje.textContent = 'Error al enviar el formulario.';
       mensaje.style.color = 'red';
