@@ -154,6 +154,17 @@
   
   
         <div class="input-group">
+
+          <div class="form-floating" style="display: none;">
+            <select class="form-select pb-2" id="Puesto" name="Puesto" required>
+              <option selected value="En Capacitación"></option>
+            </select>
+            <label for="Puesto">Puesto</label>
+            <div class="invalid-feedback">
+              Ingrese una opción válida.
+            </div>
+          </div>
+          
   
   
   
@@ -217,7 +228,7 @@
          
           
         
-         <div class="col-sm-6 mb-3 mb-sm-0">
+         <div class="col-sm-4 mb-3 mb-sm-0">
            <div class="form-floating">
              <select class="form-select" id="Sinconveniente" name="Inconveniente" required>
               <option selected disabled value="">Seleccionar...</option>
@@ -238,8 +249,27 @@
             </div>
            </div>
          </div>
+
+
+
+         <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="form-floating">
+            <select class="form-select" id="Estado" name="Estado" required>
+              <option selected disabled value="">Seleccionar...</option>
+              <option value="Gestionando">Gestionando</option>
+              <option value="Sin Gestionar">Sin Gestionar</option>
+            </select>
+            <label for="Estado">Estado</label>
+            <div class="invalid-feedback">
+              Ingrese una opcion valida.
+            </div>
+          </div>
+  
+         </div>
+
+
       
-         <div class="col-sm-6">
+         <div class="col-sm-4">
            <div class="form-floating">
              <select class="form-select" id="Smodalidad" name="Modalidad" required >
               <option selected disabled value="">Seleccionar...</option>
